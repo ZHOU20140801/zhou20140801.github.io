@@ -1,0 +1,235 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奶茶个人网站</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            color: #444;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #3a3a3a;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 40px 0 20px;
+        }
+
+        h3 {
+            font-size: 1.8em;
+            color: #6a6a6a;
+            margin: 20px 0;
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+        }
+
+        a {
+            font-size: 1.2em;
+            color: #5d8aa8;
+            text-decoration: none;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #ff6b6b;
+            transform: scale(1.05);
+        }
+
+        p {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+
+        #c1 {
+            border: 10px solid #fff;
+            border-radius: 50%;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <img src="IMG_2763.jpg">
+    <h3>欢迎！！！来到我的个人网站</h3>
+    <a href="https://space.bilibili.com/1789145286?spm_id_from=333.1007.0.0">我的B站主页</a>
+    <a href="https://live.bilibili.com/24653806?broadcast_type=0&is_room_feed=1&spm_id_from=333.999.to_liveroom.0.click&live_from=86002">直播地址</a>
+    <p>QQ群:186930832</p>
+    <p>密码自己猜</p>
+    <p>迷你号:510447852</p>
+    <p>公告:因为github在中国大陆访问卡的原因，请开启vpn！[置顶]</p>
+    <p>小视频</p>
+    <a href="https://zhou20140801.github.io/510mimn.github.io/118393752-1-6.mp4">朝你大胯捏一把</a>
+    <a href="https://zhou20140801.github.io/510mimn.github.io/e4ac708425c39bb8aeadf6bb930ed9bf.MP4">apt.(极限压缩)</a>
+    <a href="https://zhou20140801.github.io/510mimn.github.io/bbbs.html">宝宝巴士1小时版(极限压缩)</a>
+    <a href="https://zhou20140801.github.io/510mimn.github.io/freecompress-copy_7AD94BD6-4981-4335-9DC8-E7094394C2FD.mp4">龙王点名</a>
+    <p>↓做着玩玩↓</p>
+    <a href="https://zhou20140801.github.io/510mimn.github.io/vpn.html">免费VPN</a>
+    <a href="https://zhou20140801.github.io/510mimn.github.io/menu2.html">ubc2快照</a>
+    <a href="https://zhou20140801.github.io/510mimn.github.io/ck1.html">QQ机器人词库大全</a>
+    <a href="https://zhou20140801.github.io/510mimn.github.io/nc.html">nc字幕组</a>
+    <a href="https://zhou20140801.github.io/510mimn.github.io/zxvvpnnnnnnnnn.html">在线网页vpn(其作用就是云服务器上的虚拟机开着加速器帮你访问外网)</a>
+
+    <div>
+        <canvas id="c1" width="400" height="400">
+        </canvas>
+    </div>
+
+    <script type="text/javascript">
+        var clock = document.getElementById("c1").getContext("2d");
+
+        function play() {
+            clock.clearRect(0, 0, 400, 400);
+            clock.save();
+            clock.translate(200, 200); //把画布中心转移到canvas中间
+            biaopan();
+            run();
+            clock.restore();
+        }
+        setInterval(function() {
+            play();
+        }, 1000);
+
+        function biaopan() {
+            //绘制表盘
+            clock.strokeStyle = "#6a6a6a";
+            clock.lineWidth = 5;
+            clock.beginPath();
+            clock.arc(0, 0, 195, 0, 2 * Math.PI);
+            clock.stroke();
+
+            //刻度(小时)
+            clock.strokeStyle = "#6a6a6a";
+            clock.lineWidth = 5;
+            for(var i = 0; i < 12; i++) {
+                clock.beginPath();
+                clock.moveTo(0, -190);
+                clock.lineTo(0, -170);
+                clock.stroke();
+                clock.rotate(2 * Math.PI / 12);
+            }
+            //刻度(分钟)
+            clock.strokeStyle = "#6a6a6a";
+            clock.lineWidth = 3;
+            for(var i = 0; i < 60; i++) {
+                clock.beginPath();
+                clock.moveTo(0, -190);
+                clock.lineTo(0, -180);
+                clock.stroke();
+                clock.rotate(2 * Math.PI / 60);
+            }
+            //绘制文字
+            clock.textAlign = "center";
+            clock.textBaseline = "middle";
+            clock.fillStyle = "#6a6a6a";
+            clock.font = "20px Poppins";
+            for(var i = 1; i < 13; i++) {
+                clock.fillText(i,Math.sin(2*Math.PI /12*i)*150,Math.cos(2*Math.PI/12*i)*-150);
+            }
+        }
+
+        function run() {
+            var date = new Date();
+            var h = date.getHours();
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+            var week = date.getDay();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+
+            switch (week){
+                case 1: week = "星期一";
+                break;
+                case 2: week = "星期二";
+                break;
+                case 3: week = "星期三";
+                break;
+                case 4: week = "星期四";
+                break;
+                case 5: week = "星期五";
+                break;
+                case 6: week = "星期六";
+                break;
+                default: week = "星期天";
+                break;
+            }
+            clock.save();
+            clock.textAlign = "center";
+            clock.textBaseline = "middle";
+            clock.fillStyle = "#444";
+            clock.font = "16px Poppins";
+            clock.fillText(week,-2,-118);
+            clock.fillText(month+" 月",-90,2);
+            clock.fillText(day+" 号",90,0);
+            clock.restore();
+
+            //时针
+            //分针60格 分针5格 
+            clock.save();
+            clock.rotate(2 * Math.PI / 12 * h + (2 * Math.PI / 60 * m + 2 * Math.PI / 60 * s / 60) / 12);
+            clock.strokeStyle = "#444";
+            clock.lineWidth = 7;
+            clock.beginPath();
+            clock.moveTo(0, 0);
+            clock.lineTo(0, -80);
+            clock.lineCap = "round";
+            clock.stroke();
+            clock.restore();
+
+            //分针
+            //秒针60格 分针一格
+            clock.save();
+            clock.beginPath();
+            clock.strokeStyle = "#5d8aa8";
+            clock.lineWidth = 5;
+            clock.rotate(2 * Math.PI / 60 * m + 2 * Math.PI / 60 * s / 60);
+            clock.moveTo(0, 0);
+            clock.lineTo(0, -110);
+            clock.lineCap = "round";
+            clock.stroke();
+            clock.restore();
+
+            //秒针
+            clock.strokeStyle = "#ff6b6b";
+            clock.rotate(2 * Math.PI / 60 * s);
+            clock.lineWidth = 4;
+            clock.beginPath();
+            clock.moveTo(0, 0);
+            clock.lineTo(0, -120);
+            clock.lineCap = "round";
+            clock.stroke();
+
+            //中心
+            clock.fillStyle = "#fff";
+            clock.lineWidth = 5;
+            clock.beginPath();
+            clock.arc(0, 0, 10, 0, 2 * Math.PI);
+            clock.fill();
+            clock.strokeStyle = "#5d8aa8";
+            clock.stroke();
+        }
+    </script>
+    <p>友情链接</p>
+    <a href="https://baidu.com">百度</a> 
+    <a href="https://bilibili.com">bilibili</a>
+    <a href="https://cn.bing.com">bing</a> 
+    <a href="https://YouTube.com">youtube</a> 
+    <a href="https://zhou20140801.github.io/510mimn.github.io/obj_wo3DlMOGwrbDjj7DisKw_27554886752_2039_37e8_7b1f_fc149f3d53b2901ee8060cf09e98a353.mp3">但.mp3</a>
+</body>
+</html>
