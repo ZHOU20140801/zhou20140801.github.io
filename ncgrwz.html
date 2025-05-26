@@ -88,150 +88,34 @@
 <audio controls="controls" loop="loop">
 	<source src="Never Gonna Give You Up - Rick Astley.mp3" type="audio/mp3"></source>
 </audio>
-    <div>
-        <canvas id="c1" width="400" height="400">
-        </canvas>
-    </div>
-
-    <script type="text/javascript">
-        var clock = document.getElementById("c1").getContext("2d");
-
-        function play() {
-            clock.clearRect(0, 0, 400, 400);
-            clock.save();
-            clock.translate(200, 200); //把画布中心转移到canvas中间
-            biaopan();
-            run();
-            clock.restore();
-        }
-        setInterval(function() {
-            play();
-        }, 1000);
-
-        function biaopan() {
-            //绘制表盘
-            clock.strokeStyle = "#6a6a6a";
-            clock.lineWidth = 5;
-            clock.beginPath();
-            clock.arc(0, 0, 195, 0, 2 * Math.PI);
-            clock.stroke();
-
-            //刻度(小时)
-            clock.strokeStyle = "#6a6a6a";
-            clock.lineWidth = 5;
-            for(var i = 0; i < 12; i++) {
-                clock.beginPath();
-                clock.moveTo(0, -190);
-                clock.lineTo(0, -170);
-                clock.stroke();
-                clock.rotate(2 * Math.PI / 12);
-            }
-            //刻度(分钟)
-            clock.strokeStyle = "#6a6a6a";
-            clock.lineWidth = 3;
-            for(var i = 0; i < 60; i++) {
-                clock.beginPath();
-                clock.moveTo(0, -190);
-                clock.lineTo(0, -180);
-                clock.stroke();
-                clock.rotate(2 * Math.PI / 60);
-            }
-            //绘制文字
-            clock.textAlign = "center";
-            clock.textBaseline = "middle";
-            clock.fillStyle = "#6a6a6a";
-            clock.font = "20px Poppins";
-            for(var i = 1; i < 13; i++) {
-                clock.fillText(i,Math.sin(2*Math.PI /12*i)*150,Math.cos(2*Math.PI/12*i)*-150);
-            }
+   <script>
+        function updateTime() {
+            const now = new Date();
+            
+            // 格式化时间
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            
+            // 格式化日期
+            const year = now.getFullYear();
+            const month = (now.getMonth() + 1).toString().padStart(2, '0');
+            const day = now.getDate().toString().padStart(2, '0');
+            const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            const weekday = weekdays[now.getDay()];
+            const dateString = `${year}年${month}月${day}日 ${weekday}`;
+            
+            // 更新页面
+            document.getElementById('time').textContent = timeString;
+            document.getElementById('date').textContent = dateString;
         }
 
-        function run() {
-            var date = new Date();
-            var h = date.getHours();
-            var m = date.getMinutes();
-            var s = date.getSeconds();
-            var week = date.getDay();
-            var month = date.getMonth() + 1;
-            var day = date.getDate();
-
-            switch (week){
-                case 1: week = "星期一";
-                break;
-                case 2: week = "星期二";
-                break;
-                case 3: week = "星期三";
-                break;
-                case 4: week = "星期四";
-                break;
-                case 5: week = "星期五";
-                break;
-                case 6: week = "星期六";
-                break;
-                default: week = "星期天";
-                break;
-            }
-            clock.save();
-            clock.textAlign = "center";
-            clock.textBaseline = "middle";
-            clock.fillStyle = "#444";
-            clock.font = "16px Poppins";
-            clock.fillText(week,-2,-118);
-            clock.fillText(month+" 月",-90,2);
-            clock.fillText(day+" 号",90,0);
-            clock.restore();
-
-            //时针
-            //分针60格 分针5格 
-            clock.save();
-            clock.rotate(2 * Math.PI / 12 * h + (2 * Math.PI / 60 * m + 2 * Math.PI / 60 * s / 60) / 12);
-            clock.strokeStyle = "#444";
-            clock.lineWidth = 7;
-            clock.beginPath();
-            clock.moveTo(0, 0);
-            clock.lineTo(0, -80);
-            clock.lineCap = "round";
-            clock.stroke();
-            clock.restore();
-
-            //分针
-            //秒针60格 分针一格
-            clock.save();
-            clock.beginPath();
-            clock.strokeStyle = "#5d8aa8";
-            clock.lineWidth = 5;
-            clock.rotate(2 * Math.PI / 60 * m + 2 * Math.PI / 60 * s / 60);
-            clock.moveTo(0, 0);
-            clock.lineTo(0, -110);
-            clock.lineCap = "round";
-            clock.stroke();
-            clock.restore();
-
-            //秒针
-            clock.strokeStyle = "#ff6b6b";
-            clock.rotate(2 * Math.PI / 60 * s);
-            clock.lineWidth = 4;
-            clock.beginPath();
-            clock.moveTo(0, 0);
-            clock.lineTo(0, -120);
-            clock.lineCap = "round";
-            clock.stroke();
-
-            //中心
-            clock.fillStyle = "#fff";
-            clock.lineWidth = 5;
-            clock.beginPath();
-            clock.arc(0, 0, 10, 0, 2 * Math.PI);
-            clock.fill();
-            clock.strokeStyle = "#5d8aa8";
-            clock.stroke();
-        }
+        // 初始调用
+        updateTime();
+        
+        // 每秒更新一次
+        setInterval(updateTime, 1000);
     </script>
-    <p>友情链接</p>
-    <a href="https://baidu.com">百度</a> 
-    <a href="https://bilibili.com">bilibili</a>
-    <a href="https://cn.bing.com">bing</a> 
-    <a href="https://YouTube.com">youtube</a> 
-    <a href="https://zhou20140801.github.io/510mimn.github.io/obj_wo3DlMOGwrbDjj7DisKw_27554886752_2039_37e8_7b1f_fc149f3d53b2901ee8060cf09e98a353.mp3">但.mp3</a>
 </body>
 </html>
