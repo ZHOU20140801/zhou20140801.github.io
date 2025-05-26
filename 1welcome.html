@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .welcome-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .countdown {
+            color: #666;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <h1>欢迎！</h1>
+        <p>您已成功登录</p>
+        <div class="countdown" id="countdown">3秒后自动跳转到首页...</div>
+ <script>
+        // 设置倒计时和自动跳转
+        let seconds = 3;
+        const countdownElement = document.getElementById('countdown');
+        const timer = setInterval(function() {
+            seconds--;
+            countdownElement.textContent = `${seconds}秒后自动跳转到首页...`;
+            
+            if (seconds <= 0) {
+                clearInterval(timer);
+                window.location.href = 'ncgrwz.html';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
