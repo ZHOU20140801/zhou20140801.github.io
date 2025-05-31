@@ -88,34 +88,4 @@
 <audio controls="controls" loop="loop">
 	<source src="Never Gonna Give You Up - Rick Astley.mp3" type="audio/mp3"></source>
 </audio>
-   <script>
-        function updateTime() {
-            const now = new Date();
-            
-            // 格式化时间
-            const hours = now.getHours().toString().padStart(2, '0');
-            const minutes = now.getMinutes().toString().padStart(2, '0');
-            const seconds = now.getSeconds().toString().padStart(2, '0');
-            const timeString = `${hours}:${minutes}:${seconds}`;
-            
-            // 格式化日期
-            const year = now.getFullYear();
-            const month = (now.getMonth() + 1).toString().padStart(2, '0');
-            const day = now.getDate().toString().padStart(2, '0');
-            const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
-            const weekday = weekdays[now.getDay()];
-            const dateString = `${year}年${month}月${day}日 ${weekday}`;
-            
-            // 更新页面
-            document.getElementById('time').textContent = timeString;
-            document.getElementById('date').textContent = dateString;
-        }
-
-        // 初始调用
-        updateTime();
-        
-        // 每秒更新一次
-        setInterval(updateTime, 1000);
-    </script>
-</body>
-</html>
+ <a href="https://ipw.cn/ipv6webcheck/?site=zhou20140801.github.io/" title="本站支持IPv6访问" target='_blank'><img style='display:inline-block;vertical-align:middle' alt="本站支持IPv6访问" src="https://static.ipw.cn/icon/ipv6-s1.svg"></a>
