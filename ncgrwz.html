@@ -1,91 +1,216 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>奶茶个人网站</title>
+    <title>奶茶的直播 - 极致直播体验</title>
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
-            color: #444;
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --accent-color: #fd79a8;
+            --light-color: #f8f9fa;
+            --dark-color: #2d3436;
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+        
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .hero {
+            height: 100vh;
+            background: var(--gradient);
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
         }
-
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i2.hdslb.com/bfs/face/54cc4407ff1f9a18fe94bc6b0c61317e701cd0df.jpg') center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
         h1 {
-            font-size: 3em;
-            color: #3a3a3a;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            margin: 40px 0 20px;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease;
         }
-
-        h3 {
-            font-size: 1.8em;
-            color: #6a6a6a;
-            margin: 20px 0;
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.3s both;
         }
-
-        img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 50%;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            margin: 30px 0;
-        }
-
-        a {
-            font-size: 1.2em;
-            color: #5d8aa8;
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 30px;
             text-decoration: none;
-            margin: 10px 0;
+            font-weight: bold;
             transition: all 0.3s ease;
+            animation: fadeIn 1s ease 0.6s both;
         }
-
-        a:hover {
-            color: #ff6b6b;
-            transform: scale(1.05);
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-
-        p {
-            font-size: 1.1em;
-            margin: 10px 0;
+        
+        .features {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-
-        #c1 {
-            border: 10px solid #fff;
-            border-radius: 50%;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            margin: 40px 0;
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--primary-color);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <img src="IMG_2763.jpg">
-    <h3>欢迎！！！来到我的个人网站</h3>
-    <a href="https://space.bilibili.com/1789145286?spm_id_from=333.1007.0.0">我的B站主页</a>
-    <a href="https://live.bilibili.com/24653806?broadcast_type=0&is_room_feed=1&spm_id_from=333.999.to_liveroom.0.click&live_from=86002">直播地址</a>
-    <p>QQ群:186930832</p>
-    <p>密码自己猜</p>
-    <p>迷你号:510447852</p>
-    <p>公告:因为github在中国大陆访问卡的原因，请开启vpn！[置顶]</p>
-    <p>小视频</p>
-    <a href="https://zhou20140801.github.io/510mimn.github.io/118393752-1-6.mp4">朝你大胯捏一把</a>
-    <a href="https://zhou20140801.github.io/510mimn.github.io/e4ac708425c39bb8aeadf6bb930ed9bf.MP4">apt.(极限压缩)</a>
-    <a href="https://zhou20140801.github.io/510mimn.github.io/bbbs.html">宝宝巴士1小时版(极限压缩)</a>
-    <a href="https://zhou20140801.github.io/510mimn.github.io/freecompress-copy_7AD94BD6-4981-4335-9DC8-E7094394C2FD.mp4">龙王点名</a>
-    <p>↓做着玩玩↓</p>
-    <a href="https://zhou20140801.github.io/510mimn.github.io/vpn.html">免费VPN</a>
-    <a href="https://zhou20140801.github.io/510mimn.github.io/menu2.html">ubc2快照</a>
-    <a href="https://zhou20140801.github.io/510mimn.github.io/ck1.html">QQ机器人词库大全</a>
-    <a href="https://zhou20140801.github.io/510mimn.github.io/nc.html">nc字幕组</a>
-    <a href="https://zhou20140801.github.io/510mimn.github.io/zxvvpnnnnnnnnn.html">在线网页vpn(其作用就是云服务器上的虚拟机开着加速器帮你访问外网)</a>
-<audio controls="controls" loop="loop">
-	<source src="Never Gonna Give You Up - Rick Astley.mp3" type="audio/mp3"></source>
-</audio>
- <a href="https://ipw.cn/ipv6webcheck/?site=zhou20140801.github.io/" title="本站支持IPv6访问" target='_blank'><img style='display:inline-block;vertical-align:middle' alt="本站支持IPv6访问" src="https://static.ipw.cn/icon/ipv6-s1.svg"></a>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>奶茶的网站</h1>
+            <p class="subtitle">探索迷你世界之美体验 身临其境般的直播体验</p>
+            <a href="https://live.bilibili.com/24653806" class="btn">开始探索</a>
+        </div>
+    </section>
+    
+    <section class="features" id="features">
+        <h2 class="section-title">我的特色</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3 class="feature-title">精美直播</h3>
+                <p>每一场直播精心准备 每一个细节都经过精心雕琢。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">极致精心</h3>
+                <p>每个地图精心游玩 不错过任何一个线索</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3 class="feature-title">每个人都是平等的</h3>
+                <p>不管刷没刷礼物 通通都可以加好友</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>© 2025 奶茶酱 | 极致直播体验</p>
+    </footer>
+</body>
+</html>
