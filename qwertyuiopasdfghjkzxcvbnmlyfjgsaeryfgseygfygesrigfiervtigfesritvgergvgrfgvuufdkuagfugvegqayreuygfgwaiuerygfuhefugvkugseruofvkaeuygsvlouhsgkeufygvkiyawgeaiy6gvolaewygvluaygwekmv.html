@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据表格示例</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        .table-container {
+            overflow-x: auto; /* 小屏幕横向滚动 */
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        /* 响应式设计 */
+        @media screen and (max-width: 600px) {
+            th, td {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="table-container">
+        <h2>刘一诺!以下是你的高考成绩信息 祝你成功上岸!</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>公布时间</th>
+                    <th>随机号码(保护信息)</th>
+                    <th>科目</th>
+                    <th>成绩</th>
+                    <th>排名(区)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>*</td>
+                    <td>516586955268</td>
+                    <td>数学</td>
+                    <td>95</td>
+                    <td>165</td>
+                </tr>
+                <tr>
+                    <td>*</td>
+                    <td>286455258458515</td>
+                    <td>语文100</td>
+                    <td>100</td>
+                    <td>54</td>
+                </tr>
+                <tr>
+                    <td>*</td>
+                    <td>5465426854455</td>
+                    <td>物理</td>
+                    <td>92</td>
+                    <td>5</td>
+                </tr>
+                 <tr>
+                 <td>以下成绩无信息</td>
+                <td>*</td>
+                 <td>*</td>
+                    <td>*</td>
+                    <td>*</td>
+                    <td>*</td>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
