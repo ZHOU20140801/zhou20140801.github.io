@@ -3,214 +3,765 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>奶茶的直播 - 极致直播体验</title>
+    <title>一天不喝奶茶就会死 - 个人主页</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #6c5ce7;
-            --secondary-color: #a29bfe;
-            --accent-color: #fd79a8;
-            --light-color: #f8f9fa;
-            --dark-color: #2d3436;
-            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --neon-blue: #00f3ff;
+            --neon-pink: #ff00ff;
+            --neon-purple: #bd00ff;
+            --dark-bg: #0d0d17;
+            --darker-bg: #060611;
+            --grid-color: rgba(0， 227, 255, 0.1);
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background-color: var(--light-color);
-            color: var(--dark-color);
-            line-height: 1.6;
+            font-family: 'Share Tech Mono', monospace;
+            background-color: var(--dark-bg);
+            color: white;
+            min-height: 100vh;
+            position: relative;
             overflow-x: hidden;
+            background-image: 
+                linear-gradient(var(--grid-color) 1px， transparent 1px),
+                linear-gradient(90deg， var(--grid-color) 1px， transparent 1px);
+            background-size: 30px 30px;
         }
         
-        .hero {
-            height: 100vh;
-            background: var(--gradient);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(189， 0， 255, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        。cyberpunk-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* 霓虹灯样式标题 */
+        。neon-title {
+            font-family: 'Orbitron'， sans-serif;
             text-align: center;
-            color: white;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            animation: neonPulse 1.5s ease-in-out infinite alternate;
+        }
+        
+        @keyframes neonPulse {
+            0%， 100% {
+                text-shadow: 
+                    0 0 5px #fff,
+                    0 0 10px var(--neon-blue)，
+                    0 0 20px var(--neon-blue),
+                    0 0 40px var(--neon-pink)，
+                    0 0 80px var(--neon-pink)，
+                    0 0 90px var(--neon-pink)，
+                    0 0 100px var(--neon-pink);
+                filter: brightness(1.1);
+            }
+            50% {
+                text-shadow: 
+                    0 0 2px #fff,
+                    0 0 5px var(--neon-blue)，
+                    0 0 10px var(--neon-blue),
+                    0 0 20px var(--neon-pink)，
+                    0 0 40px var(--neon-pink);
+                filter: brightness(0.9);
+            }
+        }
+        
+        /* 时钟样式 */
+        。cyber-clock {
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+            letter-spacing: 3px;
+        }
+        
+        。cyber-clock span {
+            display: inline-block;
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        /* 霓虹欢迎条 */
+        。welcome-banner {
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 60px;
+            border: 1px solid var(--neon-purple);
             position: relative;
             overflow: hidden;
+            background: rgba(13, 13, 23, 0.7);
+            box-shadow: 0 0 10px var(--neon-purple)， inset 0 0 10px var(--neon-purple);
+            animation: scanline 10s linear infinite;
         }
         
-        .hero::before {
-            content: '';
+        @keyframes scanline {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 0 100%;
+            }
+        }
+        
+        。welcome-banner::before {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://i2.hdslb.com/bfs/face/54cc4407ff1f9a18fe94bc6b0c61317e701cd0df.jpg') center/cover;
-            opacity: 0.2;
-            z-index: 0;
+            background: linear-gradient(90deg， transparent, rgba(189， 0, 255, 0.3), transparent);
+            animation: scan 5s linear infinite;
         }
         
-        .hero-content {
+        @keyframes scan {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        
+        。welcome-banner h2 {
+            font-size: 2.5rem;
+            margin: 0;
+            letter-spacing: 3px;
             position: relative;
-            z-index: 1;
-            max-width: 800px;
-            padding: 0 20px;
+            z-index: 2;
+            text-shadow: 0 0 10px var(--neon-pink);
         }
         
-        h1 {
+        /* 用户信息和头像区域 */
+        。user-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        
+        。avatar-container {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            background: 
+                linear-gradient(var(--dark-bg)， var(--dark-bg)) padding-box,
+                linear-gradient(135deg， var(--neon-blue)， var(--neon-pink)) border-box;
+            margin-bottom: 30px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 全部 0.5s ease;
+            animation: glow 2s infinite alternate;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.5), 0 0 30px rgba(255, 0, 255, 0.3);
+        }
+        
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 10px rgba(0， 243, 255, 0.7), 0 0 20px rgba(255, 0, 255, 0.5);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(0， 243, 255, 0.9), 0 0 40px rgba(255, 0, 255, 0.7);
+            }
+        }
+        
+        。avatar-placeholder {
             font-size: 4rem;
-            margin-bottom: 1rem;
-            animation: fadeInDown 1s ease;
+            color: #fff;
+            opacity: 0.8;
         }
         
-        .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.3s both;
+        .user-info {
+            text-align: center;
+            position: relative;
         }
         
-        .btn {
-            display: inline-block;
-            background: white;
-            color: var(--primary-color);
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            animation: fadeIn 1s ease 0.6s both;
+        .user-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--neon-blue), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(189, 0, 255, 0.5);
         }
         
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
         }
         
-        .features {
-            padding: 100px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+        /* 视频展示区 */
+        .video-section {
+            margin: 80px 0;
         }
         
         .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 40px;
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 60px;
-            color: var(--primary-color);
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+            position: relative;
         }
         
-        .feature-grid {
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--neon-blue), var(--neon-pink));
+            margin: 15px auto;
+            box-shadow: 0 0 10px var(--neon-pink);
+        }
+        
+        .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            gap: 30px;
+            margin-top: 30px;
         }
         
-        .feature-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        .video-card {
+            background: rgba(13, 13, 23, 0.7);
+            border: 1px solid var(--neon-blue);
+            border-radius: 5px;
+            overflow: hidden;
             transition: all 0.3s ease;
-            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
         }
         
-        .feature-card:hover {
+        .video-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 25px var(--neon-blue);
         }
         
-        .feature-icon {
-            font-size: 3rem;
-            color: var(--accent-color);
-            margin-bottom: 20px;
+        .video-thumbnail {
+            width: 100%;
+            height: 180px;
+            background-color: #1a1a2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
         }
         
-        .feature-title {
+        .video-thumbnail::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 243, 255, 0.1), rgba(255, 0, 255, 0.1));
+        }
+        
+        .video-thumbnail img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+        
+        .video-info {
+            padding: 20px;
+        }
+        
+        .video-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--neon-blue);
+        }
+        
+        .video-desc {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            color: #aaa;
+        }
+        
+        .video-play-btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background: transparent;
+            border: 1px solid var(--neon-pink);
+            color: var(--neon-pink);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .video-play-btn:hover {
+            background: rgba(255, 0, 255, 0.1);
+            box-shadow: 0 0 10px var(--neon-pink);
+        }
+        
+        /* 项目展示区 */
+        。project-card {
+            background: rgba(13, 13, 23, 0.7);
+            border: 1px solid var(--neon-purple);
+            border-radius: 5px;
+            padding: 20px;
+            margin: 40px auto;
+            max-width: 600px;
+            transition: 全部 0.3s ease;
+            box-shadow: 0 0 15px rgba(189, 0, 255, 0.3);
+        }
+        
+        。project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px var(--neon-purple);
+        }
+        
+        。project-title {
             font-size: 1.5rem;
             margin-bottom: 15px;
+            color: var(--neon-purple);
         }
         
-        footer {
-            background: var(--dark-color);
+        。project-desc {
+            margin-bottom: 20px;
+            color: #aaa;
+        }
+        
+        /* 赛博按钮样式 */
+        。cyber-btn {
+            position: relative;
+            padding: 15px 30px;
+            border: 2px solid var(--neon-blue);
+            background: transparent;
+            color: var(--neon-blue);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            overflow: hidden;
+        }
+        
+        。cyber-btn:hover {
+            background: rgba(0, 243, 255, 0.1);
+            text-shadow: 0 0 10px var(--neon-blue);
+            box-shadow: 
+                0 0 10px var(--neon-blue),
+                inset 0 0 10px var(--neon-blue);
             color: white;
-            text-align: center;
-            padding: 30px;
+            transform: translateY(-3px);
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        。cyber-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg， transparent， rgba(255, 255, 255, 0.2), transparent);
+            transition: 全部 0.5s;
         }
         
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        。cyber-btn:hover::before {
+            left: 100%;
         }
         
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        。main-btn {
+            padding: 18px 35px;
+            font-size: 1.3rem;
+            border-color: var(--neon-pink);
+            color: var(--neon-pink);
+        }
+        
+        。main-btn:hover {
+            box-shadow: 
+                0 0 15px var(--neon-pink),
+                inset 0 0 15px var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+        
+        /* 音乐播放器 */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: rgba(13, 13, 23, 0.8);
+            border-radius: 50%;
+            border: 2px solid var(--neon-blue);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 0 15px var(--neon-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .music-player:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px var(--neon-blue);
+        }
+        
+        .music-icon {
+            font-size: 1.8rem;
+            color: var(--neon-blue);
+        }
+        
+        /* 赛博装饰元素 */
+        .cyber-decoration {
+            position: absolute;
+            z-index: 1;
+        }
+        
+        .decoration-1 {
+            top: 5%;
+            left: 5%;
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--neon-blue);
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 15s linear infinite;
+        }
+        
+        .decoration-2 {
+            top: 15%;
+            right: 5%;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, var(--neon-purple) 0%, transparent 70%);
+            filter: blur(8px);
+            animation: scalePulse 4s infinite alternate;
+        }
+        
+        .decoration-3 {
+            bottom: 10%;
+            left: 10%;
+            width: 30px;
+            height: 100px;
+            border: 1px solid var(--neon-blue);
+            border-radius: 20px;
+            box-shadow: 0 0 15px var(--neon-blue);
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        .decoration-4 {
+            bottom: 20%;
+            right: 15%;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--neon-pink), transparent);
+            filter: blur(1px);
+            animation: widthPulse 3s infinite alternate;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes scalePulse {
+            0%, 100% { transform: scale(0.8); }
+            50% { transform: scale(1.2); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes widthPulse {
+            0% { width: 30px; }
+            100% { width: 60px; }
         }
         
         /* 响应式设计 */
         @media (max-width: 768px) {
-            h1 {
+            。neon-title {
+                font-size: 3rem;
+            }
+            
+            。cyber-clock {
+                font-size: 2rem;
+            }
+            
+            。welcome-banner h2 {
+                font-size: 1.8rem;
+            }
+            
+            。user-name {
+                font-size: 2rem;
+            }
+            
+            。avatar-container {
+                width: 180px;
+                height: 180px;
+            }
+            
+            。cyber-btn {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+            
+            。main-btn {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+            
+            。video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            。neon-title {
                 font-size: 2.5rem;
             }
             
-            .subtitle {
-                font-size: 1.2rem;
+            。cyber-clock {
+                font-size: 1.5rem;
+            }
+            
+            。welcome-banner h2 {
+                font-size: 1.5rem;
+            }
+            
+            。user-name {
+                font-size: 1.8rem;
+            }
+            
+            。avatar-container {
+                width: 160px;
+                height: 160px;
+            }
+            
+            。social-links {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
 </head>
 <body>
-    <section class="hero">
-        <div class="hero-content">
-            <h1>奶茶的网站</h1>
-            <p class="subtitle">探索迷你世界之美体验 身临其境般的直播体验</p>
-            <a href="https://live.bilibili.com/24653806" class="btn">开始探索</a>
-        </div>
-    </section>
+    <!-- 装饰元素 -->
+    <div class="cyber-decoration decoration-1"></div>
+    <div class="cyber-decoration decoration-2"></div>
+    <div class="cyber-decoration decoration-3"></div>
+    <div class="cyber-decoration decoration-4"></div>
     
-    <section class="features" id="features">
-        <h2 class="section-title">我的特色</h2>
-        <div class="feature-grid">
-            <div class="feature-card">
-                <div class="feature-icon">✨</div>
-                <h3 class="feature-title">精美直播</h3>
-                <p>每一场直播精心准备 每一个细节都经过精心雕琢。</p>
+    <div class="cyberpunk-container">
+        <h1 class="neon-title">欢迎来到我的个人网站</h1>
+        
+        <!-- 赛博时钟 -->
+        <div class="cyber-clock">
+            <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+        </div>
+        
+        <div class="welcome-banner">
+            <h2>🌟 欢迎来到我的生活空间，分享每日精彩！ 🌟</h2>
+        </div>
+        
+        <div class="user-profile">
+            <div class="avatar-container">
+                <div class="avatar-placeholder">👤</div>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3 class="feature-title">极致精心</h3>
-                <p>每个地图精心游玩 不错过任何一个线索</p>
+            
+            <div class="user-info">
+                <h3 class="user-name">一天不喝奶茶就会死</h3>
+                <p>🏙️ 城市游荡者 | 🎮 游戏狂热者 | 📸 摄影探索者</p>
+                <p class="user-signature">每个普通日子都值得被记录，每个梦想都值得被追逐</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">🌐</div>
-                <h3 class="feature-title">每个人都是平等的</h3>
-                <p>不管刷没刷礼物 通通都可以加好友</p>
+            
+            <div class="social-links">
+                <a href="https://b23.tv/QdZ0UFQ" target="_blank" class="cyber-btn main-btn">
+                    <span>🎮</span> B站空间入口
+                </a>
+                <a href="https://github.com" target="_blank" class="cyber-btn">
+                    <span>转</span> GitHub
+                </a>
+                <a href="mailto:2579610865@qq.com" class="cyber-btn">
+                    <span>📱</span> 联系我
+                </a>
             </div>
         </div>
-    </section>
+        
+          <!-- 视频展示区 -->
+        <div class="video-section">
+            <h3 class="section-title">精彩视频作品</h3>
+            <div class="video-grid">
+                <!-- 视频1 -->
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="placeholder1.jpg" alt="城市光影之旅" class="video-cover">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h4 class="video-title"><span>🎬</span>城市光影之旅</h4>
+                        <p class="video-desc">探索未来城市中的光与影，穿梭在霓虹街道之间，感受赛博都市的独特魅力。</p>
+                        <a href="#" class="video-play-btn">🎮 观看视频</a>
+                    </div>
+                </div>
+                
+                <!-- 视频2 -->
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="placeholder2.jpg" alt="虚拟世界探秘" class="video-cover">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h4 class="video-title"><span>📀</span>虚拟世界探秘</h4>
+                        <p class="video-desc">踏入数字世界的边界，揭开虚拟空间的神秘面纱，体验前所未有的视觉盛宴。</p>
+                        <a href="#" class="video-play-btn">🎮 观看视频</a>
+                    </div>
+                </div>
+                
+                <!-- 视频3 -->
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="placeholder3.jpg" alt="赛博银河征途" class="video-cover">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h4 class="video-title"><span>🚀</span>赛博银河征途</h4>
+                        <p class="video-desc">启航星际征途，穿梭在充满未知的赛博银河系，发现宇宙深处的奇迹与奥秘。</p>
+                        <a href="#" class="video-play-btn">🎮 观看视频</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 项目展示区 -->
+        <div class="project-card">
+            <h3 class="project-title">模拟随身WiFi充值页面</h3>
+            <p class="project-desc">这是我用AI制作的一个模拟随身WiFi充值页面项目</p>
+            <a href="http://u5a.cn/QQyWY" target="_blank" class="cyber-btn main-btn">
+                <span>🌐</span> 查看项目
+            </a>
+        </div>
+    </div>
     
-    <footer>
-        <p>© 2025 奶茶酱 | 极致直播体验</p>
-    </footer>
+    <!-- 音乐播放器 -->
+    <div class="music-player" id="musicToggle">
+        <div class="music-icon">🎵</div>
+    </div>
+    
+    <audio id="bgMusic" loop>
+        <source src="your-music-file.mp3" type="audio/mpeg">
+        您的浏览器不支持音频元素。
+    </audio>
+    
+    <script>
+        // 更新时钟函数
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+        
+        // 初始化时钟并每秒更新
+        updateClock();
+        setInterval(updateClock, 1000);
+        
+        // 音乐播放控制
+        const musicToggle = document.getElementById('musicToggle');
+        const bgMusic = document.getElementById('bgMusic');
+        let isMusicPlaying = false;
+        
+        // 尝试自动播放音乐（浏览器策略可能阻止）
+        document.addEventListener('DOMContentLoaded', function() {
+            bgMusic。volume = 0.3;
+            const playPromise = bgMusic。play();
+            
+            if (playPromise !== undefined) {
+                playPromise。键，然后(_ => {
+                    isMusicPlaying = true;
+                    musicToggle。querySelector('.music-icon')。textContent = '🔊';
+                })
+                。catch(error => {
+                    isMusicPlaying = false;
+                    musicToggle。querySelector('.music-icon')。textContent = '🔇';
+                });
+            }
+        });
+        
+        // 点击切换音乐播放状态
+        musicToggle。addEventListener('click'， function() {
+            if (isMusicPlaying) {
+                bgMusic。pause();
+                musicToggle。querySelector('.music-icon')。textContent = '🔇';
+            } else {
+                bgMusic。play();
+                musicToggle。querySelector('.music-icon')。textContent = '🔊';
+            }
+            isMusicPlaying = !isMusicPlaying;
+        });
+        
+        // 添加鼠标移动时的响应效果
+        document。addEventListener('mousemove'， (e) => {
+            const glows = document。querySelectorAll('.cyber-btn, .avatar-container, .video-card, .project-card');
+            glows。forEach(glow => {
+                const rect = glow。getBoundingClientRect();
+                const x = e。clientX - rect.left - rect.width / 2;
+                const y = e。clientY - rect。top - rect。height / 2;
+                
+                const intensity = Math.sqrt(x * x + y * y) / 20;
+                
+                glow。style。boxShadow = `
+                    ${-x/20}px ${-y/20}px 15px rgba(0, 243, 255, ${0.8 - intensity/10}),
+                    ${x/20}px ${y/20}px 25px rgba(255, 0, 255, ${0.6 - intensity/15}),
+                    inset ${-x/50}px ${-y/50}px 5px rgba(0, 243, 255, 0.3),
+                    inset ${x/50}px ${y/50}px 5px rgba(255, 0, 255, 0.3)
+                `;
+            });
+        });
+        
+        // 添加滚动时的视差效果
+        window。addEventListener('scroll'， () => {
+            const scrollY = window。scrollY;
+            const decorations = document。querySelectorAll('.cyber-decoration');
+            
+            decorations。forEach((dec， index) => {
+                dec。style。transform = `translateY(${scrollY * (0.1 * (index + 1))}px)`;
+            });
+        });
+    </script>
 </body>
 </html>
