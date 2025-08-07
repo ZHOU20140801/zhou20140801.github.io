@@ -12,7 +12,7 @@
             --neon-purple: #bd00ff;
             --dark-bg: #0d0d17;
             --darker-bg: #060611;
-            --grid-color: rgba(0， 227, 255, 0.1);
+            --grid-color: rgba(0, 227, 255, 0.1);
         }
         
         * {
@@ -29,8 +29,8 @@
             position: relative;
             overflow-x: hidden;
             background-image: 
-                linear-gradient(var(--grid-color) 1px， transparent 1px),
-                linear-gradient(90deg， var(--grid-color) 1px， transparent 1px);
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
             background-size: 30px 30px;
         }
         
@@ -41,12 +41,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at center, rgba(189， 0， 255, 0.05) 0%, transparent 70%);
+            background: radial-gradient(circle at center, rgba(189, 0, 255, 0.05) 0%, transparent 70%);
             pointer-events: none;
             z-index: -1;
         }
         
-        。cyberpunk-container {
+        .cyberpunk-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
@@ -55,8 +55,8 @@
         }
         
         /* 霓虹灯样式标题 */
-        。neon-title {
-            font-family: 'Orbitron'， sans-serif;
+        .neon-title {
+            font-family: 'Orbitron', sans-serif;
             text-align: center;
             font-size: 4rem;
             margin-bottom: 20px;
@@ -67,30 +67,30 @@
         }
         
         @keyframes neonPulse {
-            0%， 100% {
+            0%, 100% {
                 text-shadow: 
                     0 0 5px #fff,
-                    0 0 10px var(--neon-blue)，
+                    0 0 10px var(--neon-blue),
                     0 0 20px var(--neon-blue),
-                    0 0 40px var(--neon-pink)，
-                    0 0 80px var(--neon-pink)，
-                    0 0 90px var(--neon-pink)，
+                    0 0 40px var(--neon-pink),
+                    0 0 80px var(--neon-pink),
+                    0 0 90px var(--neon-pink),
                     0 0 100px var(--neon-pink);
                 filter: brightness(1.1);
             }
             50% {
                 text-shadow: 
                     0 0 2px #fff,
-                    0 0 5px var(--neon-blue)，
+                    0 0 5px var(--neon-blue),
                     0 0 10px var(--neon-blue),
-                    0 0 20px var(--neon-pink)，
+                    0 0 20px var(--neon-pink),
                     0 0 40px var(--neon-pink);
                 filter: brightness(0.9);
             }
         }
         
         /* 时钟样式 */
-        。cyber-clock {
+        .cyber-clock {
             font-family: 'Orbitron', sans-serif;
             text-align: center;
             font-size: 2.5rem;
@@ -100,14 +100,14 @@
             letter-spacing: 3px;
         }
         
-        。cyber-clock span {
+        .cyber-clock span {
             display: inline-block;
             min-width: 60px;
             text-align: center;
         }
         
         /* 霓虹欢迎条 */
-        。welcome-banner {
+        .welcome-banner {
             text-align: center;
             padding: 20px;
             margin-bottom: 60px;
@@ -115,27 +115,17 @@
             position: relative;
             overflow: hidden;
             background: rgba(13, 13, 23, 0.7);
-            box-shadow: 0 0 10px var(--neon-purple)， inset 0 0 10px var(--neon-purple);
-            animation: scanline 10s linear infinite;
+            box-shadow: 0 0 10px var(--neon-purple), inset 0 0 10px var(--neon-purple);
         }
         
-        @keyframes scanline {
-            0% {
-                background-position: 0 0;
-            }
-            100% {
-                background-position: 0 100%;
-            }
-        }
-        
-        。welcome-banner::before {
+        .welcome-banner::before {
             content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg， transparent, rgba(189， 0, 255, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(189, 0, 255, 0.3), transparent);
             animation: scan 5s linear infinite;
         }
         
@@ -148,7 +138,7 @@
             }
         }
         
-        。welcome-banner h2 {
+        .welcome-banner h2 {
             font-size: 2.5rem;
             margin: 0;
             letter-spacing: 3px;
@@ -158,27 +148,27 @@
         }
         
         /* 用户信息和头像区域 */
-        。user-profile {
+        .user-profile {
             display: flex;
             flex-direction: column;
             align-items: center;
             margin-bottom: 60px;
         }
         
-        。avatar-container {
+        .avatar-container {
             width: 200px;
             height: 200px;
             border-radius: 50%;
             border: 3px solid transparent;
             background: 
-                linear-gradient(var(--dark-bg)， var(--dark-bg)) padding-box,
-                linear-gradient(135deg， var(--neon-blue)， var(--neon-pink)) border-box;
+                linear-gradient(var(--dark-bg), var(--dark-bg)) padding-box,
+                linear-gradient(135deg, var(--neon-blue), var(--neon-pink)) border-box;
             margin-bottom: 30px;
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: 全部 0.5s ease;
+            transition: all 0.5s ease;
             animation: glow 2s infinite alternate;
             overflow: hidden;
             box-shadow: 0 0 15px rgba(0, 243, 255, 0.5), 0 0 30px rgba(255, 0, 255, 0.3);
@@ -186,14 +176,14 @@
         
         @keyframes glow {
             0% {
-                box-shadow: 0 0 10px rgba(0， 243, 255, 0.7), 0 0 20px rgba(255, 0, 255, 0.5);
+                box-shadow: 0 0 10px rgba(0, 243, 255, 0.7), 0 0 20px rgba(255, 0, 255, 0.5);
             }
             100% {
-                box-shadow: 0 0 20px rgba(0， 243, 255, 0.9), 0 0 40px rgba(255, 0, 255, 0.7);
+                box-shadow: 0 0 20px rgba(0, 243, 255, 0.9), 0 0 40px rgba(255, 0, 255, 0.7);
             }
         }
         
-        。avatar-placeholder {
+        .avatar-placeholder {
             font-size: 4rem;
             color: #fff;
             opacity: 0.8;
@@ -228,7 +218,7 @@
         
         .section-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 40px;
             text-align: center;
             color: var(--neon-pink);
@@ -325,35 +315,35 @@
         }
         
         /* 项目展示区 */
-        。project-card {
+        .project-card {
             background: rgba(13, 13, 23, 0.7);
             border: 1px solid var(--neon-purple);
             border-radius: 5px;
             padding: 20px;
             margin: 40px auto;
             max-width: 600px;
-            transition: 全部 0.3s ease;
+            transition: all 0.3s ease;
             box-shadow: 0 0 15px rgba(189, 0, 255, 0.3);
         }
         
-        。project-card:hover {
+        .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 0 25px var(--neon-purple);
         }
         
-        。project-title {
+        .project-title {
             font-size: 1.5rem;
             margin-bottom: 15px;
             color: var(--neon-purple);
         }
         
-        。project-desc {
+        .project-desc {
             margin-bottom: 20px;
             color: #aaa;
         }
         
         /* 赛博按钮样式 */
-        。cyber-btn {
+        .cyber-btn {
             position: relative;
             padding: 15px 30px;
             border: 2px solid var(--neon-blue);
@@ -372,7 +362,7 @@
             overflow: hidden;
         }
         
-        。cyber-btn:hover {
+        .cyber-btn:hover {
             background: rgba(0, 243, 255, 0.1);
             text-shadow: 0 0 10px var(--neon-blue);
             box-shadow: 
@@ -382,29 +372,29 @@
             transform: translateY(-3px);
         }
         
-        。cyber-btn::before {
+        .cyber-btn::before {
             content: "";
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg， transparent， rgba(255, 255, 255, 0.2), transparent);
-            transition: 全部 0.5s;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.5s;
         }
         
-        。cyber-btn:hover::before {
+        .cyber-btn:hover::before {
             left: 100%;
         }
         
-        。main-btn {
+        .main-btn {
             padding: 18px 35px;
             font-size: 1.3rem;
             border-color: var(--neon-pink);
             color: var(--neon-pink);
         }
         
-        。main-btn:hover {
+        .main-btn:hover {
             box-shadow: 
                 0 0 15px var(--neon-pink),
                 inset 0 0 15px var(--neon-pink);
@@ -510,65 +500,69 @@
         
         /* 响应式设计 */
         @media (max-width: 768px) {
-            。neon-title {
+            .neon-title {
                 font-size: 3rem;
             }
             
-            。cyber-clock {
+            .cyber-clock {
                 font-size: 2rem;
             }
             
-            。welcome-banner h2 {
+            .welcome-banner h2 {
                 font-size: 1.8rem;
             }
             
-            。user-name {
+            .user-name {
                 font-size: 2rem;
             }
             
-            。avatar-container {
+            .avatar-container {
                 width: 180px;
                 height: 180px;
             }
             
-            。cyber-btn {
+            .cyber-btn {
                 padding: 12px 24px;
                 font-size: 1rem;
             }
             
-            。main-btn {
+            .main-btn {
                 padding: 15px 30px;
                 font-size: 1.1rem;
             }
             
-            。video-grid {
+            .video-grid {
                 grid-template-columns: 1fr;
             }
         }
         
         @media (max-width: 480px) {
-            。neon-title {
+            .neon-title {
                 font-size: 2.5rem;
             }
             
-            。cyber-clock {
+            .cyber-clock {
                 font-size: 1.5rem;
             }
             
-            。welcome-banner h2 {
+            .welcome-banner h2 {
                 font-size: 1.5rem;
             }
             
-            。user-name {
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .user-name {
                 font-size: 1.8rem;
             }
             
-            。avatar-container {
+            .avatar-container {
                 width: 160px;
                 height: 160px;
             }
             
-            。social-links {
+            .social-links {
                 flex-direction: column;
                 align-items: center;
             }
@@ -591,7 +585,7 @@
         </div>
         
         <div class="welcome-banner">
-            <h2>🌟 欢迎来到我的生活空间，分享每日精彩！ 🌟</h2>
+            <h2>🌟 欢迎来到我的数字生活空间，分享每日精彩！ 🌟</h2>
         </div>
         
         <div class="user-profile">
@@ -609,55 +603,52 @@
                 <a href="https://b23.tv/QdZ0UFQ" target="_blank" class="cyber-btn main-btn">
                     <span>🎮</span> B站空间入口
                 </a>
-                <a href="https://github.com" target="_blank" class="cyber-btn">
-                    <span>转</span> GitHub
+                <a href="https://github.com/yourusername" target="_blank" class="cyber-btn">
+                    <span>💾</span> GitHub档案
                 </a>
-                <a href="mailto:2579610865@qq.com" class="cyber-btn">
+                <a href="mailto:your-email@example.com" class="cyber-btn">
                     <span>📱</span> 联系我
                 </a>
             </div>
         </div>
         
-          <!-- 视频展示区 -->
+        <!-- 视频展示区 -->
         <div class="video-section">
-            <h3 class="section-title">精彩视频作品</h3>
+            <h3 class="section-title">精选视频作品</h3>
             <div class="video-grid">
                 <!-- 视频1 -->
                 <div class="video-card">
                     <div class="video-thumbnail">
-                        <img src="placeholder1.jpg" alt="城市光影之旅" class="video-cover">
-                        <div class="play-icon">▶</div>
+                        <img src="1fm.png" alt="视频封面1">
                     </div>
                     <div class="video-info">
-                        <h4 class="video-title"><span>🎬</span>城市光影之旅</h4>
-                        <p class="video-desc">探索未来城市中的光与影，穿梭在霓虹街道之间，感受赛博都市的独特魅力。</p>
-                        <a href="#" class="video-play-btn">🎮 观看视频</a>
+                        <h4 class="video-title">第一次坐火车</h4>
+                        <p class="video-desc">hahaha</p>
+                        <a href="https://www.bilibili.com/video/BV1aagizYEXU" class="video-play-btn">播放</a>
                     </div>
                 </div>
                 
                 <!-- 视频2 -->
                 <div class="video-card">
                     <div class="video-thumbnail">
-                        <img src="placeholder2.jpg" alt="虚拟世界探秘" class="video-cover">
-                        <div class="play-icon">▶</div>
+                        <img src="fm" alt="视频封面2">
                     </div>
                     <div class="video-info">
-                        <h4 class="video-title"><span>📀</span>虚拟世界探秘</h4>
-                        <p class="video-desc">踏入数字世界的边界，揭开虚拟空间的神秘面纱，体验前所未有的视觉盛宴。</p>
-                        <a href="#" class="video-play-btn">🎮 观看视频</a>
+                        <h4 class="video-title">测试一下自己找的直播源流畅度</h4>
+                        <p class="video-desc">懒</p>
+                        <a href="https://www.bilibili.com/video/BV1ZXbmzWEZv/?spm_id_from=333.1387.homepage.video_card.click&vd_source=3e53959726c67a863a1477cc41fcb01d" class="video-play-btn">播放视频</a>
                     </div>
                 </div>
                 
                 <!-- 视频3 -->
                 <div class="video-card">
                     <div class="video-thumbnail">
-                        <img src="placeholder3.jpg" alt="赛博银河征途" class="video-cover">
-                        <div class="play-icon">▶</div>
+                        <img src="3fm.png" alt="视频封面3">
                     </div>
                     <div class="video-info">
-                        <h4 class="video-title"><span>🚀</span>赛博银河征途</h4>
-                        <p class="video-desc">启航星际征途，穿梭在充满未知的赛博银河系，发现宇宙深处的奇迹与奥秘。</p>
-                        <a href="#" class="video-play-btn">🎮 观看视频</a>
+                        <h4 class="video-title">失败100遍 心中早有路</h4>
+                        <p class="video-desc">6</p>
+                        <a href="https://www.bilibili.com/video/BV1ufhJzYE7p" class="video-play-btn">播放视频</a>
                     </div>
                 </div>
             </div>
@@ -666,7 +657,7 @@
         <!-- 项目展示区 -->
         <div class="project-card">
             <h3 class="project-title">模拟随身WiFi充值页面</h3>
-            <p class="project-desc">这是我用AI制作的一个模拟随身WiFi充值页面项目</p>
+            <p class="project-desc">这是我制作的一个模拟随身WiFi充值页面项目，展示了前端开发技能和UI设计能力。</p>
             <a href="http://u5a.cn/QQyWY" target="_blank" class="cyber-btn main-btn">
                 <span>🌐</span> 查看项目
             </a>
@@ -684,82 +675,83 @@
     </audio>
     
     <script>
-        // 更新时钟函数
-        function updateClock() {
-            const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            
-            document.getElementById('hours').textContent = hours;
-            document.getElementById('minutes').textContent = minutes;
-            document.getElementById('seconds').textContent = seconds;
-        }
-        
-        // 初始化时钟并每秒更新
-        updateClock();
-        setInterval(updateClock, 1000);
-        
-        // 音乐播放控制
-        const musicToggle = document.getElementById('musicToggle');
-        const bgMusic = document.getElementById('bgMusic');
-        let isMusicPlaying = false;
-        
-        // 尝试自动播放音乐（浏览器策略可能阻止）
+        // 确保DOM加载完成后执行
         document.addEventListener('DOMContentLoaded', function() {
-            bgMusic。volume = 0.3;
-            const playPromise = bgMusic。play();
+            // 更新时钟函数
+            function updateClock() {
+                const now = new Date();
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                
+                document.getElementById('hours').textContent = hours;
+                document.getElementById('minutes').textContent = minutes;
+                document.getElementById('seconds').textContent = seconds;
+            }
+            
+            // 初始化时钟并每秒更新
+            updateClock();
+            setInterval(updateClock, 1000);
+            
+            // 音乐播放控制
+            const musicToggle = document.getElementById('musicToggle');
+            const bgMusic = document.getElementById('bgMusic');
+            let isMusicPlaying = false;
+            
+            // 尝试自动播放音乐
+            bgMusic.volume = 0.3;
+            const playPromise = bgMusic.play();
             
             if (playPromise !== undefined) {
-                playPromise。键，然后(_ => {
+                playPromise.then(_ => {
                     isMusicPlaying = true;
-                    musicToggle。querySelector('.music-icon')。textContent = '🔊';
+                    musicToggle.querySelector('.music-icon').textContent = '🔊';
                 })
-                。catch(error => {
+                .catch(error => {
                     isMusicPlaying = false;
-                    musicToggle。querySelector('.music-icon')。textContent = '🔇';
+                    musicToggle.querySelector('.music-icon').textContent = '🔇';
                 });
             }
-        });
-        
-        // 点击切换音乐播放状态
-        musicToggle。addEventListener('click'， function() {
-            if (isMusicPlaying) {
-                bgMusic。pause();
-                musicToggle。querySelector('.music-icon')。textContent = '🔇';
-            } else {
-                bgMusic。play();
-                musicToggle。querySelector('.music-icon')。textContent = '🔊';
-            }
-            isMusicPlaying = !isMusicPlaying;
-        });
-        
-        // 添加鼠标移动时的响应效果
-        document。addEventListener('mousemove'， (e) => {
-            const glows = document。querySelectorAll('.cyber-btn, .avatar-container, .video-card, .project-card');
-            glows。forEach(glow => {
-                const rect = glow。getBoundingClientRect();
-                const x = e。clientX - rect.left - rect.width / 2;
-                const y = e。clientY - rect。top - rect。height / 2;
-                
-                const intensity = Math.sqrt(x * x + y * y) / 20;
-                
-                glow。style。boxShadow = `
-                    ${-x/20}px ${-y/20}px 15px rgba(0, 243, 255, ${0.8 - intensity/10}),
-                    ${x/20}px ${y/20}px 25px rgba(255, 0, 255, ${0.6 - intensity/15}),
-                    inset ${-x/50}px ${-y/50}px 5px rgba(0, 243, 255, 0.3),
-                    inset ${x/50}px ${y/50}px 5px rgba(255, 0, 255, 0.3)
-                `;
-            });
-        });
-        
-        // 添加滚动时的视差效果
-        window。addEventListener('scroll'， () => {
-            const scrollY = window。scrollY;
-            const decorations = document。querySelectorAll('.cyber-decoration');
             
-            decorations。forEach((dec， index) => {
-                dec。style。transform = `translateY(${scrollY * (0.1 * (index + 1))}px)`;
+            // 点击切换音乐播放状态
+            musicToggle.addEventListener('click', function() {
+                if (isMusicPlaying) {
+                    bgMusic.pause();
+                    musicToggle.querySelector('.music-icon').textContent = '🔇';
+                } else {
+                    bgMusic.play();
+                    musicToggle.querySelector('.music-icon').textContent = '🔊';
+                }
+                isMusicPlaying = !isMusicPlaying;
+            });
+            
+            // 添加鼠标移动时的响应效果
+            document.addEventListener('mousemove', (e) => {
+                const glows = document.querySelectorAll('.cyber-btn, .avatar-container, .video-card, .project-card');
+                glows.forEach(glow => {
+                    const rect = glow.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    
+                    const intensity = Math.sqrt(x * x + y * y) / 20;
+                    
+                    glow.style.boxShadow = `
+                        ${-x/20}px ${-y/20}px 15px rgba(0, 243, 255, ${0.8 - intensity/10}),
+                        ${x/20}px ${y/20}px 25px rgba(255, 0, 255, ${0.6 - intensity/15}),
+                        inset ${-x/50}px ${-y/50}px 5px rgba(0, 243, 255, 0.3),
+                        inset ${x/50}px ${y/50}px 5px rgba(255, 0, 255, 0.3)
+                    `;
+                });
+            });
+            
+            // 添加滚动时的视差效果
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                const decorations = document.querySelectorAll('.cyber-decoration');
+                
+                decorations.forEach((dec, index) => {
+                    dec.style.transform = `translateY(${scrollY * (0.1 * (index + 1))}px)`;
+                });
             });
         });
     </script>
