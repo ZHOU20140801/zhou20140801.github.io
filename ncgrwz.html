@@ -56,7 +56,7 @@
             z-index: 2;
         }
         
-        /* 霓虹灯样式标题 */
+        /* 霓虹灯样式标题 - 优化清晰度 */
         .neon-title {
             font-family: 'Orbitron', sans-serif;
             text-align: center;
@@ -66,6 +66,11 @@
             text-transform: uppercase;
             letter-spacing: 4px;
             animation: neonPulse 1.5s ease-in-out infinite alternate;
+            /* 添加以下属性提高清晰度 */
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-weight: 900; /* 加粗字体 */
         }
         
         @keyframes neonPulse {
@@ -74,10 +79,7 @@
                     0 0 5px #fff,
                     0 0 10px var(--neon-blue),
                     0 0 20px var(--neon-blue),
-                    0 0 40px var(--neon-pink),
-                    0 0 80px var(--neon-pink),
-                    0 0 90px var(--neon-pink),
-                    0 0 100px var(--neon-pink);
+                    0 0 40px var(--neon-pink);
                 filter: brightness(1.1);
             }
             50% {
@@ -85,8 +87,7 @@
                     0 0 2px #fff,
                     0 0 5px var(--neon-blue),
                     0 0 10px var(--neon-blue),
-                    0 0 20px var(--neon-pink),
-                    0 0 40px var(--neon-pink);
+                    0 0 20px var(--neon-pink);
                 filter: brightness(0.9);
             }
         }
@@ -117,7 +118,7 @@
             position: relative;
             overflow: hidden;
             background: rgba(13, 13, 23, 0.7);
-            box-shadow: 0 0 10px var(--neon-purple), inset 0 0 10px var(--neon-purple);
+            box-shadow: 0 0 10px var(--neon-purple), inset 0 0 10px var(--极neon-purple);
         }
         
         .welcome-banner::before {
@@ -340,7 +341,7 @@
         }
         
         .project-desc {
-            margin-bottom: 20px;
+            margin-bottom: 20极px;
             color: #aaa;
         }
         
@@ -587,18 +588,18 @@
         </div>
         
         <div class="welcome-banner">
-            <h2>🌟 欢迎来到我的空间，分享每日精彩！ 🌟🌟</h2>
+            <h2>🌟 欢迎来到我的空间，分享精彩！🌟</h2>
         </div>
         
         <div class="user-profile">
             <div class="avatar-container">
-                <!-- 确保图片路径正确 -->
-                
+                <!-- 头像图片 -->
+                <img src="https://i2.hdslb.com/bfs/face/6f2a8f1e5c3c6b3c3d3e3f3e3f3e3f3e3f3e3f3e.jpg" alt="头像" style="width: 100%; height: 100%; border-radius: 50%;">
             </div>
             
             <div class="user-info">
                 <h3 class="user-name">一天不喝奶茶就会死</h3>
-                <p>🏙🏙️ 城市游荡者 | 🎮🎮🎮 游戏狂热者 | 📸📸 摄影探索者</p>
+                <p>🏙️ 城市游荡者 | 🎮游戏狂热者 | 📸摄影探索者</p>
                 <p class="user-signature">每个普通日子都值得被记录，每个梦想都值得被追逐</p>
             </div>
             
@@ -622,8 +623,7 @@
                 <!-- 视频1 -->
                 <div class="video-card">
                     <div class="video-thumbnail">
-                        <!-- 确保图片路径正确 -->
-                        
+                        <img src="1fm.png" alt="第一次坐火车">
                     </div>
                     <div class="video-info">
                         <h4 class="video-title">第一次坐火车</h4>
@@ -635,21 +635,19 @@
                 <!-- 视频2 -->
                 <div class="video-card">
                     <div class="video-thumbnail">
-                        <!-- 确保图片路径正确 -->
-                        
+                        <img src="2fm.png" alt="直播源测试">
                     </div>
                     <div class="video-info">
                         <h4 class="video-title">测试一下自己找的直播源流畅度</h4>
                         <p class="video-desc">懒</p>
-                        <a href="https://www.bilibili.com/video/BV1ZXbmzWEZv/?spm_id_from=333.1387.homepage.video_card.click&vd_source=3e53959726c67a863a1477cc41fcb01d" class="video-play-btn">播放视频</a>
+                        <a href="https://www.bilibili.com/video/BV1ZXbmzWEZv">播放视频</a>
                     </div>
                 </div>
                 
                 <!-- 视频3 -->
                 <div class="video-card">
                     <div class="video-thumbnail">
-                        <!-- 确保图片路径正确 -->
-                        
+                        <img src="3fm.png.jpg" alt="失败100遍">
                     </div>
                     <div class="video-info">
                         <h4 class="video-title">失败100遍 心中早有路</h4>
@@ -681,8 +679,8 @@
            title="本站支持IPv6访问" 
            target='_blank'
            style="display: block;">
-            <!-- 添加徽标图片 -->
-            
+            <!-- IPv6徽标 -->
+            <img src="https://static.ipw.cn/icon/ipv6-s1.svg" alt="IPv6" style="height: 60px;">
         </a>
     </div>
     
@@ -720,32 +718,32 @@
             const playPromise = bgMusic.play();
             
             if (playPromise !== undefined) {
-                playPromise.键，然后(_ => {
+                playPromise.then(_ => {
                     isMusicPlaying = true;
-                    musicToggle.querySelector('.music-icon')。textContent = '🔊🔊';
+                    musicToggle.querySelector('.music-icon').textContent = '🔊🔊';
                 })
-                。catch(error => {
+                .catch(error => {
                     isMusicPlaying = false;
-                    musicToggle。querySelector('.music-icon')。textContent = '🔇🔇';
+                    musicToggle.querySelector('.music-icon').textContent = '🔇🔇';
                 });
             }
             
             // 点击切换音乐播放状态
-            musicToggle。addEventListener('click'， function() {
+            musicToggle.addEventListener('click', function() {
                 if (isMusicPlaying) {
                     bgMusic.pause();
                     musicToggle.querySelector('.music-icon').textContent = '🔇🔇';
                 } else {
-                    bgMusic。play();
-                    musicToggle。querySelector('.music-icon')。textContent = '🔊🔊';
+                    bgMusic.play();
+                    musicToggle.querySelector('.music-icon').textContent = '🔊🔊';
                 }
                 isMusicPlaying = !isMusicPlaying;
             });
             
             // 添加鼠标移动时的响应效果
-            document。addEventListener('mousemove'， (e) => {
+            document.addEventListener('mousemove', (e) => {
                 const glows = document.querySelectorAll('.cyber-btn, .avatar-container, .video-card, .project-card');
-                glows。forEach(glow => {
+                glows.forEach(glow => {
                     const rect = glow.getBoundingClientRect();
                     const x = e.clientX - rect.left - rect.width / 2;
                     const y = e.clientY - rect.top - rect.height / 2;
