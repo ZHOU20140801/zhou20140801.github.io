@@ -56,7 +56,7 @@
             z-index: 2;
         }
         
-        /* 霓虹灯样式标题 - 优化清晰度 */
+        /* 霓虹灯样式标题 - 修复模糊问题 */
         .neon-title {
             font-family: 'Orbitron', sans-serif;
             text-align: center;
@@ -66,11 +66,11 @@
             text-transform: uppercase;
             letter-spacing: 4px;
             animation: neonPulse 1.5s ease-in-out infinite alternate;
-            /* 添加以下属性提高清晰度 */
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            font-weight: 900; /* 加粗字体 */
+            font-weight: 900;
+            color: #fff; /* 添加基础颜色确保可读性 */
         }
         
         @keyframes neonPulse {
@@ -92,7 +92,7 @@
             }
         }
         
-        /* 时钟样式 */
+        /* 时钟样式 - 修复显示问题 */
         .cyber-clock {
             font-family: 'Orbitron', sans-serif;
             text-align: center;
@@ -118,7 +118,7 @@
             position: relative;
             overflow: hidden;
             background: rgba(13, 13, 23, 0.7);
-            box-shadow: 0 0 10px var(--neon-purple), inset 0 0 10px var(--极neon-purple);
+            box-shadow: 0 0 10px var(--neon-purple), inset 0 0 10px var(--neon-purple);
         }
         
         .welcome-banner::before {
@@ -236,7 +236,7 @@
             height: 3px;
             background: linear-gradient(to right, var(--neon-blue), var(--neon-pink));
             margin: 15px auto;
-            box-shadow: 0 0 10px var(--neon-pink);
+            box-shadow: 0 0 10px var(--极neon-pink);
         }
         
         .video-grid {
@@ -279,29 +279,29 @@
             background: linear-gradient(135deg, rgba(0, 243, 255, 0.1), rgba(255, 0, 255, 0.1));
         }
         
-        。video-thumbnail img {
+        .video-thumbnail img {
             max-width: 100%;
             max-height: 100%;
             object-fit: cover;
         }
         
-        。video-info {
+        .video-info {
             padding: 20px;
         }
         
-        。video-title {
+        .video-title {
             font-size: 1.3rem;
             margin-bottom: 10px;
             color: var(--neon-blue);
         }
         
-        。video-desc {
+        .video-desc {
             font-size: 0.9rem;
             margin-bottom: 15px;
             color: #aaa;
         }
         
-        。video-play-btn {
+        .video-play-btn {
             display: inline-block;
             padding: 8px 20px;
             background: transparent;
@@ -312,44 +312,45 @@
             transition: all 0.3s ease;
         }
         
-        。video-play-btn:hover {
-            background: rgba(255， 0, 255, 0.1);
+        .video-play-btn:hover {
+            background: rgba(255, 0, 255, 0.1);
             box-shadow: 0 0 10px var(--neon-pink);
+            border: 1px solid var(--neon-pink); /* 确保按钮边框可见 */
         }
         
         /* 项目展示区 */
-        。project-card {
+        .project-card {
             background: rgba(13, 13, 23, 0.7);
             border: 1px solid var(--neon-purple);
             border-radius: 5px;
             padding: 20px;
             margin: 40px auto;
             max-width: 600px;
-            transition: 全部 0.3s ease;
+            transition: all 0.3s ease;
             box-shadow: 0 0 15px rgba(189, 0, 255, 0.3);
         }
         
-        。project-card:hover {
+        .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 0 25px var(--neon-purple);
         }
         
-        。project-title {
+        .project-title {
             font-size: 1.5rem;
             margin-bottom: 15px;
             color: var(--neon-purple);
         }
         
-        。project-desc {
-            margin-bottom: 20极px;
+        .project-desc {
+            margin-bottom: 20px;
             color: #aaa;
         }
         
-        /* 赛博按钮样式 */
-        。cyber-btn {
+        /* 赛博按钮样式 - 修复边框问题 */
+        .cyber-btn {
             position: relative;
             padding: 15px 30px;
-            border: 2px solid var(--neon-blue);
+            border: 2px solid var(--neon-blue); /* 确保边框可见 */
             background: transparent;
             color: var(--neon-blue);
             font-family: 'Share Tech Mono', monospace;
@@ -357,7 +358,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             cursor: pointer;
-            transition: 全部 0.3s ease;
+            transition: all 0.3s ease;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
@@ -373,6 +374,7 @@
                 inset 0 0 10px var(--neon-blue);
             color: white;
             transform: translateY(-3px);
+            border: 2px solid var(--neon-blue); /* 确保hover状态边框可见 */
         }
         
         .cyber-btn::before {
@@ -402,10 +404,11 @@
                 0 0 15px var(--neon-pink),
                 inset 0 0 15px var(--neon-pink);
             text-shadow: 0 0 10px var(--neon-pink);
+            border: 2px solid var(--neon-pink); /* 确保hover状态边框可见 */
         }
         
         /* 音乐播放器 */
-        。music-player {
+        .music-player {
             position: fixed;
             bottom: 20px;
             right: 20px;
@@ -420,26 +423,26 @@
             cursor: pointer;
             z-index: 100;
             box-shadow: 0 0 15px var(--neon-blue);
-            transition: 全部 0.3s ease;
+            transition: all 0.3s ease;
         }
         
-        。music-player:hover {
+        .music-player:hover {
             transform: scale(1.1);
             box-shadow: 0 0 25px var(--neon-blue);
         }
         
-        。music-icon {
+        .music-icon {
             font-size: 1.8rem;
             color: var(--neon-blue);
         }
         
         /* 赛博装饰元素 */
-        。cyber-decoration {
+        .cyber-decoration {
             position: absolute;
             z-index: 1;
         }
         
-        。decoration-1 {
+        .decoration-1 {
             top: 5%;
             left: 5%;
             width: 50px;
@@ -450,17 +453,17 @@
             animation: spin 15s linear infinite;
         }
         
-        。decoration-2 {
+        .decoration-2 {
             top: 15%;
             right: 5%;
             width: 40px;
             height: 40px;
-            background: radial-gradient(circle， var(--neon-purple) 0%, transparent 70%);
+            background: radial-gradient(circle, var(--neon-purple) 0%, transparent 70%);
             filter: blur(8px);
             animation: scalePulse 4s infinite alternate;
         }
         
-        。decoration-3 {
+        .decoration-3 {
             bottom: 10%;
             left: 10%;
             width: 30px;
@@ -471,12 +474,12 @@
             animation: float 6s infinite ease-in-out;
         }
         
-        。decoration-4 {
+        .decoration-4 {
             bottom: 20%;
             right: 15%;
             width: 60px;
             height: 2px;
-            background: linear-gradient(to right， transparent， var(--neon-pink)， transparent);
+            background: linear-gradient(to right, transparent, var(--neon-pink), transparent);
             filter: blur(1px);
             animation: widthPulse 3s infinite alternate;
         }
@@ -487,12 +490,12 @@
         }
         
         @keyframes scalePulse {
-            0%， 100% { transform: scale(0.8); }
+            0%, 100% { transform: scale(0.8); }
             50% { transform: scale(1.2); }
         }
         
         @keyframes float {
-            0%， 100% { transform: translateY(0); }
+            0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-20px); }
         }
         
@@ -503,71 +506,72 @@
         
         /* 响应式设计 */
         @media (max-width: 768px) {
-            。neon-title {
+            .neon-title {
                 font-size: 3rem;
             }
             
-            。cyber-clock {
+            .cyber-clock {
                 font-size: 2rem;
             }
             
-            。welcome-banner h2 {
+            .welcome-banner h2 {
                 font-size: 1.8rem;
             }
             
-            。user-name {
+            .user-name {
                 font-size: 2rem;
             }
             
-            。avatar-container {
+            .avatar-container {
                 width: 180px;
                 height: 180px;
             }
             
-            。cyber-btn {
+            .cyber-btn {
                 padding: 12px 24px;
                 font-size: 1rem;
             }
             
-            。main-btn {
+            .main-btn {
                 padding: 15px 30px;
                 font-size: 1.1rem;
             }
             
-            。video-grid {
+            .video-grid {
                 grid-template-columns: 1fr;
             }
         }
         
         @media (max-width: 480px) {
-            。neon-title {
+            .neon-title {
                 font-size: 2.5rem;
             }
             
-            。cyber-clock {
+            .cyber-clock {
                 font-size: 1.5rem;
             }
             
-            。welcome-banner h2 {
+            .welcome-banner h2 {
                 font-size: 1.5rem;
             }
             
-            。section-title {
+            .section-title {
                 font-size: 1.6rem;
             }
             
-            。user-name {
+            .user-name {
                 font-size: 1.8rem;
             }
             
-            。avatar-container {
+            .avatar-container {
                 width: 160px;
                 height: 160px;
             }
             
-            。social-links {
+            .social-links {
                 flex-direction: column;
                 align-items: center;
+                gap: 15px;
             }
         }
     </style>
@@ -582,13 +586,13 @@
     <div class="cyberpunk-container">
         <h1 class="neon-title">欢迎来到我的个人网站</h1>
         
-        <!-- 赛博时钟 -->
+        <!-- 赛博时钟 - 修复时钟功能 -->
         <div class="cyber-clock">
             <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
         </div>
         
         <div class="welcome-banner">
-            <h2>🌟 欢迎来到我的空间，分享精彩！🌟</h2>
+            <h2>🌟 欢迎来到我的空间，分享每日精彩！ 🌟</h2>
         </div>
         
         <div class="user-profile">
@@ -599,19 +603,19 @@
             
             <div class="user-info">
                 <h3 class="user-name">一天不喝奶茶就会死</h3>
-                <p>🏙️ 城市游荡者 | 🎮游戏狂热者 | 📸摄影探索者</p>
+                <p>🏙️ 城市游荡者 | 🎮 游戏狂热者 | 📸 摄影探索者</p>
                 <p class="user-signature">每个普通日子都值得被记录，每个梦想都值得被追逐</p>
             </div>
             
             <div class="social-links">
                 <a href="https://b23.tv/QdZ0UFQ" target="_blank" class="cyber-btn main-btn">
-                    <span>🎮🎮</span> B站空间入口
+                    <span>🎮</span> B站空间入口
                 </a>
-                <a href="https://github.com/yourusername" target="_blank" class="cyber-btn">
-                    <span>💾💾</span> GitHub档案
+                <a href="https://github.com" target="_blank" class="cyber-btn">
+                    <span>💾</span> GitHub
                 </a>
                 <a href="mailto:your-email@example.com" class="cyber-btn">
-                    <span>📱📱</span> 联系我
+                    <span>📱</span> 联系我
                 </a>
             </div>
         </div>
@@ -640,14 +644,14 @@
                     <div class="video-info">
                         <h4 class="video-title">测试一下自己找的直播源流畅度</h4>
                         <p class="video-desc">懒</p>
-                        <a href="https://www.bilibili.com/video/BV1ZXbmzWEZv">播放视频</a>
+                        <a href="https://www.bilibili.com/video/BV1ZXbmzWEZv/?spm_id_from=333.1387.homepage.video_card.click&vd_source=3e53959726c67a863a1477cc41fcb01d" class="video-play-btn">播放视频</a>
                     </div>
                 </div>
                 
                 <!-- 视频3 -->
                 <div class="video-card">
                     <div class="video-thumbnail">
-                        <img src="3fm.png.jpg" alt="失败100遍">
+                        <img src="3fm.png" alt="失败100遍">
                     </div>
                     <div class="video-info">
                         <h4 class="video-title">失败100遍 心中早有路</h4>
@@ -680,7 +684,7 @@
            target='_blank'
            style="display: block;">
             <!-- IPv6徽标 -->
-            <img src="https://static.ipw.cn/icon/ipv6-s1.svg" alt="IPv6" style="height: 60px;">
+            <img src="https://static.ipw.cn/icon/ipv6-s1.svg" alt="IPv6支持徽标" style="height: 60px;">
         </a>
     </div>
     
@@ -692,7 +696,7 @@
     <script>
         // 确保DOM加载完成后执行
         document.addEventListener('DOMContentLoaded', function() {
-            // 更新时钟函数
+            // 更新时钟函数 - 修复时钟功能
             function updateClock() {
                 const now = new Date();
                 const hours = String(now.getHours()).padStart(2, '0');
@@ -720,11 +724,11 @@
             if (playPromise !== undefined) {
                 playPromise.then(_ => {
                     isMusicPlaying = true;
-                    musicToggle.querySelector('.music-icon').textContent = '🔊🔊';
+                    musicToggle.querySelector('.music-icon').textContent = '🔊';
                 })
-                .catch(error => {
+                。catch(error => {
                     isMusicPlaying = false;
-                    musicToggle.querySelector('.music-icon').textContent = '🔇🔇';
+                    musicToggle.querySelector('.music-icon').textContent = '🔇';
                 });
             }
             
@@ -732,10 +736,10 @@
             musicToggle.addEventListener('click', function() {
                 if (isMusicPlaying) {
                     bgMusic.pause();
-                    musicToggle.querySelector('.music-icon').textContent = '🔇🔇';
+                    musicToggle.querySelector('.music-icon').textContent = '🔇';
                 } else {
                     bgMusic.play();
-                    musicToggle.querySelector('.music-icon').textContent = '🔊🔊';
+                    musicToggle.querySelector('.music-icon').textContent = '🔊';
                 }
                 isMusicPlaying = !isMusicPlaying;
             });
